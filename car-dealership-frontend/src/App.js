@@ -29,10 +29,13 @@ const App = () => {
   return(
     <>
       <h1>Cars</h1>
+      <Add/>
       {cars.map((car) => {
         return(
           <Car 
             car = {car}
+            setCars = {setCars}
+            getCars = {getCars}
           />
         )
       })}

@@ -14,3 +14,5 @@ const Car = (props) => {
         </div>
     )
 }
+
+export default Car
