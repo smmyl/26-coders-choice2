@@ -6,8 +6,8 @@ const carsSchema = new Schema(
     {
         name: String,
         image: String,
-        year: Number,
-        type: String
+        type: String,
+        year: Number
 
     }
 )

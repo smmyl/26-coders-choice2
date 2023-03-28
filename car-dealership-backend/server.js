@@ -25,6 +25,13 @@ app.get('/cars', (req, res)=>{
     })
 });
 
+app.get('/cars/:id', (req, res)=>{
+    Cars.findById(req.params.id)
+    .then((foundCars) => {
+        res.json(foundCars)
+    })
+});
+
 app.delete('/cars/:id', (req, res)=>{
     Cars.findByIdAndRemove(req.params.id)
     .then((deletedCars)=> {
@@ -34,14 +41,15 @@ app.delete('/cars/:id', (req, res)=>{
 
 app.put('/cars/:id', (req, res)=>{
     Cars.findByIdAndUpdate(req.params.id, req.body, {new: true})
-    .then((updatedCars)=>res.json(updatedCars))
+    .then((updatedCars) => res.json(updatedCars))
 });
 
-app.listen(3002, ()=>{
+app.listen(3000, ()=>{
     console.log('listening...');
 });
 
 
-mongoose.connect('mongodb+srv://Trophy23:Twan@cluster0.dnshspp.mongodb.net/?retryWrites=true&w=majority').then(() => {
-   console.log('conneciton with mongo established')
+mongoose.connect('mongodb://localhost:27017/cardealership')
+mongoose.connection.once('open', () => {
+  console.log('connected to mongod...');
 })
