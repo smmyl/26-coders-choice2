@@ -30,20 +30,24 @@ const Add = (props) => {
             type: type,
             year: year
         }).then(() => {
+            props.setAdd(false)
             props.getCars()
         })
     }
     return (
-        <>
-            <h3>New Car for Sale</h3>
+        <div class = 'add-cont'>
             <form onSubmit = {handleAddCar}>
-                <input type = 'text' name = 'name' placeholder = 'name' required onChange = {handleName}/><br/>
-                <input type = 'text' name = 'image' placeholder = 'image url' required onChange = {handleImage}/><br/>
-                <input type = 'text' name = 'type' placeholder = 'type' required onChange = {handleType}/><br/>
-                <input type = 'text' name = 'Year' placeholder = 'make year' required onChange = {handleYear}/><br/>
+                <label htmlFor = 'name'>Name:</label>
+                <input type = 'text' name = 'name' placeholder = 'name' required onChange = {handleName}/><br/><br/>
+                <label htmlFor = 'image'>Image URL:</label>
+                <input type = 'text' name = 'image' placeholder = 'image url' required onChange = {handleImage}/><br/><br/>
+                <label htmlFor = 'type'>Type:</label>
+                <input type = 'text' name = 'type' placeholder = 'type' required onChange = {handleType}/><br/><br/>
+                <label htmlFor = 'year'>Year:</label>
+                <input type = 'text' name = 'Year' placeholder = 'make year' required onChange = {handleYear}/><br/><br/>
                 <input type = 'submit' value = 'SUBMIT'/>
             </form>
-        </>
+        </div>
     )
 }
 

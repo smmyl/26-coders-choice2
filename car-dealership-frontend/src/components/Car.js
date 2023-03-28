@@ -10,7 +10,7 @@ const Car = (props) => {
     }
 
     return(
-        <div>
+        <div class = 'container'>
             {edit ?
                 <Edit
                     toggleEdit = {toggleEdit}
@@ -21,12 +21,12 @@ const Car = (props) => {
                 />
                 :
                 <>
-                    <h3>{props.car.name}</h3>
-                    <img src = {props.car.image}/>
-                    <p>Type: {props.car.type}</p>
-                    <p>Year: {props.car.year}</p>
+                    <h3 class = 'key'>{props.car.name}</h3>
+                    <img class = 'show-img' src = {props.car.image}/>
+                    <p><span class = 'key'>Type:</span> {props.car.type}</p>
+                    <p><span class = 'key'>Year:</span> {props.car.year}</p>
                     <hr/>
-                    <button onClick = {() => {toggleEdit()}}>Edit</button>
+                    <button id = 'edit-btn' onClick = {() => {toggleEdit()}}>Edit</button>
                 </>}
         </div>
     )

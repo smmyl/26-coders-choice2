@@ -32,16 +32,20 @@ const Edit = (props) => {
         })
     }
     return (
-        <div>
+        <div class = 'edit-form'>
             <form id = 'editForm' onSubmit = {handleEdit}>
-                <input type = 'text' name = 'name' placeholder = {props.car.name} onChange = {handleNameUpdate}/><br/>
-                <input type = 'text' name = 'image' placeholder = {props.car.image} onChange = {handleImageUpdate}/><br/>
-                <input type = 'text' name = 'type' placeholder = {props.car.type} onChange = {handleTypeUpdate}/><br/>
-                <input type = 'text' name = 'year' placeholder = {props.car.year} onChange = {handleYearUpdate}/><br/>
+                <label htmlFor = 'name'>Name:</label>
+                <input type = 'text' name = 'name' placeholder = {props.car.name} onChange = {handleNameUpdate}/><br/><br/>
+                <label htmlFor = 'image'>Image URL:</label>
+                <input type = 'text' name = 'image' placeholder = {props.car.image} onChange = {handleImageUpdate}/><br/><br/>
+                <label htmlFor = 'type'>Type:</label>
+                <input type = 'text' name = 'type' placeholder = {props.car.type} onChange = {handleTypeUpdate}/><br/><br/>
+                <label htmlFor = 'year'>Year:</label>
+                <input type = 'text' name = 'year' placeholder = {props.car.year} onChange = {handleYearUpdate}/><br/><br/>
             </form>
-            <button type = 'submit' form = 'editForm'>UPDATE</button>
-            <button onClick = {() => {props.handleDelete(props.car)}}>DELETE</button>
-            <button onClick = {() => {props.toggleEdit()}}>Cancel</button>
+            <button class = 'edit-btn' type = 'submit' form = 'editForm'>UPDATE</button><br/>
+            <button class = 'edit-btn' onClick = {() => {props.handleDelete(props.car)}}>DELETE</button><br/>
+            <button class = 'edit-btn' onClick = {() => {props.toggleEdit()}}>Cancel</button>
         </div>
     )
 }

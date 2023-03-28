@@ -36,10 +36,11 @@ const App = () => {
 
   return(
     <>
-      <h1>Cars</h1>
+      <h1>Exotic Dealership</h1>
       {add ?
       <>
-        <button onClick = {addCar}>Go Back</button>
+        <h2>New Car for Sale</h2>
+        <button id = 'add-btn' onClick = {addCar}>Go Back</button>
         <Add
           getCars = {getCars}
           setAdd = {setAdd}
@@ -47,19 +48,30 @@ const App = () => {
       </>
       :
       <>
-        <button onClick = {addCar}>Add Car </button>
-        <h2>Cars for Sale</h2>
-      {cars.map((car) => {
-        return(
-          <Car 
-            car = {car}
-            setCars = {setCars}
-            getCars = {getCars}
-            handleDelete = {handleDelete}
-          />
-        )
-      })}
+          <h2>Cars for Sale</h2>
+          <hr/>
+          <hr/>
+          <button onClick = {addCar}>Add Car </button>
+        <div class = 'cards'>
+          {cars.map((car) => {
+            return(
+              <div class = 'card'>
+                <Car 
+                  car = {car}
+                  setCars = {setCars}
+                  getCars = {getCars}
+                  handleDelete = {handleDelete}
+                />
+              </div>
+            )
+          })}
+        </div>
         </>}
+        <hr/>
+        <hr/>
+        <div class = 'footer'>
+          <p>Owned by Sammy Liao & Devorius Harris</p>
+        </div>
     </>
   )
 }

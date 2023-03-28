@@ -36,3 +36,77 @@
     transform: rotate(360deg);
   }
 }
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+.container {
+  display: flex;
+  flex-direction: column;
+}
+body {
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  background-color: rgb(173, 196, 216);
+}
+.add-cont {
+  margin-top: 60px;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5%;
+  justify-content: center;
+}
+.card {
+  width: 300px;
+  background-color: rgba(128, 128, 128, 0.656);
+  margin: 10px;
+}
+h1 {
+  background-color: rgba(245, 245, 220, 0.699);
+  margin: 10px 20px 10px 20px;
+  font-weight: bold;
+  border-radius: 10px;
+}
+h3 {
+  background-color: rgba(245, 245, 220, 0.699);
+  margin: 5% 5% 5% 5%;
+  border-radius: 15px;
+
+}
+button {
+  border-radius: 5px;
+}
+.show-img {
+  height: 200px;
+}
+.edit-form {
+  margin-top: 60px;
+
+}
+.edit-btn {
+  background-color: rgba(245, 245, 220, 0.699);
+  width: 100px;
+}
+.edit-btn:hover {
+  background-color: rgb(245, 245, 220);
+}
+/* Edit */
+#edit-btn {
+  width: 50px;
+  background-color: rgba(245, 245, 220, 0.699);
+}
+#edit-btn:hover {
+  background-color: rgb(245, 245, 220);
+}
+/* Add */
+#add-btn {
+  background-color: rgba(245, 245, 220, 0.699)
+}
+#add-btn:hover {
+  background-color: rgb(245, 242, 220);
+}
+.footer {
+  font-weight: bold;
+}
+.key {
+  font-weight: bold;
+}
