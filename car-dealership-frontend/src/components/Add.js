@@ -24,7 +24,7 @@ const Add = (props) => {
     //Send data to Database with submit
     const handleAddCar = (event) => {
         event.preventDefault()
-        axios.post('http://localhost:3002/cars', {
+        axios.post('http://localhost:3000/cars', {
             name: name,
             image: image,
             type: type,

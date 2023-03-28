@@ -1,27 +1,28 @@
+import React from 'react'
 import {useState} from 'react'
 import axios from 'axios'
 
 const Edit = (props) => {
     const [newName, setNewName] = useState(props.car.name)
-    const [newImage, setNewImage] = useState(props.car.name)
-    const [newType, setNewType] = useState(props.car.name)
-    const [newYear, setNewYear] = useState(props.car.name)
+    const [newImage, setNewImage] = useState(props.car.image)
+    const [newType, setNewType] = useState(props.car.type)
+    const [newYear, setNewYear] = useState(props.car.year)
 
     const handleNameUpdate = (event) => {
         setNewName(event.target.value)
     }
     const handleImageUpdate = (event) => {
-        setNewName(event.target.value)
+        setNewImage(event.target.value)
     }
     const handleTypeUpdate = (event) => {
-        setNewName(event.target.value)
+        setNewType(event.target.value)
     }
     const handleYearUpdate = (event) => {
-        setNewName(event.target.value)
+        setNewYear(event.target.value)
     }
     const handleEdit = (event) => {
         event.preventDefault()
-        axios.put(`http://localhost:3002/cars/${props.animal._id}`, {
+        axios.put(`http://localhost:3000/cars/${props.car._id}`, {
             name: newName,
             image: newImage,
             type: newType,
@@ -39,7 +40,8 @@ const Edit = (props) => {
                 <input type = 'text' name = 'year' placeholder = {props.car.year} onChange = {handleYearUpdate}/><br/>
             </form>
             <button type = 'submit' form = 'editForm'>UPDATE</button>
-            <button onClick = {() => {props.handleDelete(props.animal)}}>DELETE</button>
+            <button onClick = {() => {props.handleDelete(props.car)}}>DELETE</button>
+            <button onClick = {() => {props.toggleEdit()}}>Cancel</button>
         </div>
     )
 }

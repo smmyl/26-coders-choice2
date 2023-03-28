@@ -12,15 +12,15 @@ const App = () => {
 
   //Get data for cars from the backend
   const getCars = () => {
-    axios.get('http://localhost:3002/cars').then((response) => {
+    axios.get('http://localhost:3000/cars').then((response) => {
       setCars(response.data)
     })
   }
   
   //Delete function for cars
   const handleDelete = (data) => {
-    axios.delete(`http://localhost:3002/cars/${data._id}`).then(() => {
-      axios.get('http://localhost:3002/cars').then((response) => {
+    axios.delete(`http://localhost:3000/cars/${data._id}`).then(() => {
+      axios.get('http://localhost:3000/cars').then((response) => {
         setCars(response.data)
       })
     })
@@ -37,9 +37,18 @@ const App = () => {
   return(
     <>
       <h1>Cars</h1>
-      <Add
-        getCars = {getCars}
-      />
+      {add ?
+      <>
+        <button onClick = {addCar}>Go Back</button>
+        <Add
+          getCars = {getCars}
+          setAdd = {setAdd}
+        />
+      </>
+      :
+      <>
+        <button onClick = {addCar}>Add Car </button>
+        <h2>Cars for Sale</h2>
       {cars.map((car) => {
         return(
           <Car 
@@ -50,6 +59,7 @@ const App = () => {
           />
         )
       })}
+        </>}
     </>
   )
 }
