@@ -1,4 +1,5 @@
-import {useState} from 'react'
+import React from 'react'
+import {useState, useEffect} from 'react'
 import axios from 'axios'
 
 const Add = (props) => {
@@ -23,13 +24,18 @@ const Add = (props) => {
     //Send data to Database with submit
     const handleAddCar = (event) => {
         event.preventDefault()
-        axios.post('http://localhost:3000/cars').then(() => {
+        axios.post('http://localhost:3002/cars', {
+            name: name,
+            image: image,
+            type: type,
+            year: year
+        }).then(() => {
             props.getCars()
         })
     }
     return (
         <>
-            <h2>New Car for Sale</h2>
+            <h3>New Car for Sale</h3>
             <form onSubmit = {handleAddCar}>
                 <input type = 'text' name = 'name' placeholder = 'name' required onChange = {handleName}/><br/>
                 <input type = 'text' name = 'image' placeholder = 'image url' required onChange = {handleImage}/><br/>

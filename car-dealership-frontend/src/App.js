@@ -2,7 +2,6 @@ import './App.css';
 import axios from 'axios'
 import {useState, useEffect} from 'react'
 import Car from './components/Car'
-import Edit from './components/Edit'
 import Add from './components/Add'
 
 const App = () => {
@@ -13,8 +12,17 @@ const App = () => {
 
   //Get data for cars from the backend
   const getCars = () => {
-    axios.get('http://localhost:3000/cars').then((response) => {
+    axios.get('http://localhost:3002/cars').then((response) => {
       setCars(response.data)
+    })
+  }
+  
+  //Delete function for cars
+  const handleDelete = (data) => {
+    axios.delete(`http://localhost:3002/cars/${data._id}`).then(() => {
+      axios.get('http://localhost:3002/cars').then((response) => {
+        setCars(response.data)
+      })
     })
   }
 
@@ -29,13 +37,16 @@ const App = () => {
   return(
     <>
       <h1>Cars</h1>
-      <Add/>
+      <Add
+        getCars = {getCars}
+      />
       {cars.map((car) => {
         return(
           <Car 
             car = {car}
             setCars = {setCars}
             getCars = {getCars}
+            handleDelete = {handleDelete}
           />
         )
       })}

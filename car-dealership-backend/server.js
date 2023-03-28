@@ -26,7 +26,7 @@ app.get('/cars', (req, res)=>{
 });
 
 app.delete('/cars/:id', (req, res)=>{
-    Cars.findByIdAndRemove(req.params.id)
+    Cars.findByIdAndRemove(req.params.id, req.body, {new:true})
     .then((deletedCars)=> {
         res.json(deletedCars)
     })
@@ -34,7 +34,7 @@ app.delete('/cars/:id', (req, res)=>{
 
 app.put('/cars/:id', (req, res)=>{
     Cars.findByIdAndUpdate(req.params.id, req.body, {new: true})
-    .then((updatedCars)=>res.json(updatedCars))
+    .then((updatedCars) => res.json(updatedCars))
 });
 
 app.listen(3002, ()=>{
@@ -43,5 +43,5 @@ app.listen(3002, ()=>{
 
 
 mongoose.connect('mongodb+srv://Trophy23:Twan@cluster0.dnshspp.mongodb.net/?retryWrites=true&w=majority').then(() => {
-   console.log('conneciton with mongo established')
+   console.log('connection with mongo established')
 })
